@@ -1,0 +1,26 @@
+import { formatDate } from "../../utils/date-utils";
+
+/* eslint-disable react/prop-types */
+const SidebarNewsBigGrid = ({ item }) => {
+  const { title, content, urlToImage, publishedAt } = item;
+  const formattedDate = formatDate(publishedAt);
+  return (
+    <div className="col-span-12 mb-6 md:col-span-8">
+      {urlToImage ? (
+        <img className="w-full" src={urlToImage} alt="thumb" />
+      ) : (
+        <img className="w-full" src="./assets/no-image.jpg" alt="thumb" />
+      )}
+      {/* info */}
+      <div className="col-span-12 mt-6 md:col-span-4">
+        <a href="#">
+          <h3 className="mb-2.5 text-xl font-bold lg:text-[20px]">{title}</h3>
+        </a>
+        <p className="text-base text-[#292219]">{content}</p>
+        <p className="mt-5 text-base text-[#94908C]">{formattedDate}</p>
+      </div>
+    </div>
+  );
+};
+
+export default SidebarNewsBigGrid;
